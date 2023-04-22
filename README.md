@@ -1,12 +1,12 @@
 # ZusK
 
-### First touch point of [Blockchain Powered eSIM](https://github.com/ArpitxGit/Blockchain-Powered-eSIM) in N&W S3
+### First touch point of [Blockchain Powered eSIM](https://github.com/ArpitxGit/Blockchain-Powered-eSIM)
 
 A Zero-Knowledge Know Your Customer (KYC) protocol that is specifically designed for telecom network providers/companies to verify users who want to subscribe to their network. ZusK uses zero-knowledge cryptographic algorithms to create a ZK identity for end users/customers and perform KYC using a zero-knowledge proof protocol.
 
 ## ZusK Design and Architecture
 
-ZusK is designed to be a secure and efficient KYC protocol that uses zero-knowledge proofs to verify the identity of end users/customers. The protocol is built on top of a blockchain-powered eSIM infrastructure, which provides a secure and decentralized platform for telecom network providers/companies to verify the identity of their customers.
+The ZusK protocol aims to provide a secure and privacy-preserving KYC process for telecom network providers while verifying users who want to subscribe to their network. The protocol utilizes three factors for user authentication: biometrics, a personal identification number (PIN), and a private key (PK). The user's mobile number will serve as the public key for identification purposes.
 
 ## Architecture componenets:
 
@@ -18,20 +18,41 @@ ZusK is designed to be a secure and efficient KYC protocol that uses zero-knowle
 
 ## ZusK Workflow
 
-1. The end user/customer provides their identity information to the TTP.
+### User Registration
 
-2. The TTP creates a unique digital identity for the customer and encrypts it using a one-way hash function.
+a. The user submits their biometric data (e.g., fingerprint, facial scan) to a trusted third-party biometric authentication service (BAS).
 
-3. The TTP sends the encrypted digital identity to the company requesting the KYC check.
+b. The BAS generates a unique biometric identifier (BI) for the user and securely stores the user's biometric data, associating it with the BI.
 
-4. The company generates a random challenge for the customer, which requires them to prove that they possess the private key to their encrypted digital identity.
+c. The user creates a PIN and generates a public-private key pair (PPK). The mobile number serves as the public key.
 
-5. The customer uses a zero-knowledge proof protocol to prove to the company that they possess the private key, without revealing the key itself or any other personal information.
+d. The user generates a zero-knowledge proof (ZKP) that attests to the correctness of their biometric data, PIN, and PPK without revealing the actual data.
 
-Once the company is satisfied that the customer has passed the KYC check, the customer's identity is verified, and the company can proceed with their business relationship.
+e. The user sends the ZKP, BI, and their mobile number (public key) to the telecom network provider.
 
-In addition, ZusK is also aiming to create a one-time ZK ID for end users/customers for user authentication of different platforms.  
-For example, if a platform requires OTP verification, then by passing this one-time ZK ID, users will receive an OTP and submit it for authentication without providing their mobile numbers.
+### Telecom Network Provider Verification
+
+a. The telecom network provider forwards the ZKP, BI, and mobile number to the BAS for verification.
+
+b. The BAS verifies the ZKP against the stored biometric data and responds with a confirmation of validity.
+
+c. If the verification is successful, the telecom network provider creates an account for the user and associates it with the mobile number (public key).
+
+### User Subscription
+
+a. To subscribe to the network, the user needs to authenticate themselves using their biometric data, PIN, and PK.
+
+b. The user generates a new ZKP that proves they possess the correct biometric data, PIN, and PK without revealing them.
+
+c. The user sends the ZKP, their mobile number (public key), and their desired subscription package to the telecom network provider.
+
+d. The telecom network provider verifies the ZKP and, if successful, activates the subscription for the user.
+
+### Ongoing Authentication
+
+a. To ensure secure and continuous access to the network, the user periodically generates new ZKPs as a form of ongoing authentication.
+
+b. The telecom network provider verifies these ZKPs and maintains the user's access to the network.
 
 # AIM
 
