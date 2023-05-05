@@ -2,6 +2,75 @@
 
 ### First touch point of [Blockchain Powered eSIM](https://github.com/ArpitxGit/Blockchain-Powered-eSIM)
 
+Zusk is a Zero-Knowledge Know Your Customer (KYC) protocol designed specifically for eSIM providers and telecom network providers.  
+It aims to verify the validity of users while preserving their privacy and maintaining compliance with KYC requirements.  
+Zusk leverages zero-knowledge cryptographic algorithms to create a ZK identity for end users, enabling them to undergo KYC checks through a zero-knowledge proof protocol.
+
+
+## Roles of Different Personas: 
+
+a. End User/Customer:  
+  - Registers and submits personal information with the IdP.  
+  - Receives a ZK identity and digital credentials.  
+  - Uses ZK identity to generate zero-knowledge proofs when interacting with service providers.
+
+b. Identity Provider (IdP):  
+  - Processes end user's personal information and performs initial KYC.  
+  - Generates a ZK identity and digital credentials for the end user.  
+  - Stores encrypted representations of the user's data securely.  
+  - Provides public information to service providers for proof verification.
+
+c. eSIM Providers and Telecom Network Providers (Service Providers):  
+  - Implement the Zusk protocol to support zero-knowledge proofs.  
+  - Receive and verify zero-knowledge proofs submitted by end users.  
+  - Provide services (e.g., eSIM activation) to users after successful authentication.   
+    
+## Zusk Protocol Workflow
+
+The Zusk protocol workflow can be summarized in the following steps:
+
+a. User Enrollment:  
+  - The end user registers with the IdP and submits personal information.  
+  - The IdP performs the necessary KYC checks and generates a ZK identity and digital credentials for the user.
+
+b. Zusk Protocol Integration:  
+  - Service providers (e.g., eSIM providers and telecom network providers) integrate the Zusk protocol to support zero-knowledge proofs.
+
+c. User Authentication:  
+  - The end user generates a zero-knowledge proof using their ZK identity and digital credentials.  
+  - The end user submits the zero-knowledge proof to the service provider (e.g., Airalo) as part of the authentication process.  
+  - The service provider verifies the proof using the public information provided by the IdP and the Zusk protocol.  
+  - If the proof is successfully verified, the service provider proceeds with providing the requested service (e.g., eSIM activation).  
+
+By implementing the Zusk protocol, eSIM providers and telecom network providers can offer a privacy-preserving and secure KYC process to their customers while maintaining compliance with regulatory requirements. This approach allows users to authenticate their identity without exposing sensitive personal information, ensuring a higher level of privacy and security.  
+
+### More about IdP:
+Identity Provider (IdP) is a crucial component in the Zusk system, responsible for securely managing user identities and performing initial KYC checks. The IdP creates and manages users' Zero-Knowledge (ZK) identities and digital credentials, enabling them to generate and submit zero-knowledge proofs when interacting with service providers.
+
+#### Structure of the Identity Provider (IdP):
+
+##### Registration and User Onboarding:
+The IdP provides a platform for users to register and submit their personal information required for KYC purposes. This could include details such as name, date of birth, address, and identification documents (e.g., Aadhar card, passport, driver's license).
+
+##### KYC Verification:
+Once the user submits their information, the IdP performs necessary KYC checks to validate the user's identity. This may involve cross-referencing the provided information with external databases, government records, or other trusted sources.
+
+##### Cryptographic Processing and ZK Identity Creation:
+Upon successful KYC verification, the IdP uses cryptographic techniques to generate encrypted representations of the user's personal data. These encrypted representations form the basis of the user's ZK identity. The IdP also issues digital credentials linked to the user's ZK identity, which are signed by the IdP to ensure their authenticity.
+
+##### Secure Storage:
+The IdP securely stores the encrypted representations of users' personal data, ensuring that only authorized parties can access this information.
+
+##### Public Key Infrastructure (PKI):
+The IdP maintains a Public Key Infrastructure (PKI) to facilitate the verification of zero-knowledge proofs. The IdP's public key, along with other relevant public information, is shared with service providers so they can verify the authenticity of the zero-knowledge proofs submitted by users.
+
+##### Integration with Service Providers:
+The IdP provides APIs, SDKs, or other integration tools to enable service providers (e.g., eSIM providers and telecom network providers) to implement the Zusk protocol and support zero-knowledge proofs.
+
+IdP plays a central role in the Zusk system by securely managing user identities, performing KYC checks, creating ZK identities and digital credentials, and facilitating the verification of zero-knowledge proofs. By doing so, the IdP enables a secure and privacy-preserving authentication process for users interacting with service providers.
+
+# Previous Approach
+
 A Zero-Knowledge Know Your Customer(KYC) protocol that is specifically designed for telecom network providers/companies to verify users who want to subscribe to their network. ZusK uses zero-knowledge cryptographic algorithms to create a ZK identity for end users/customers and perform KYC using a zero-knowledge proof protocol.
 
 ## ZusK Design and Architecture
