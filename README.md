@@ -29,6 +29,8 @@ c. eSIM Providers and Telecom Network Providers (Service Providers):
 
 The Zusk protocol workflow can be summarized in the following steps:
 
+![ZusK](https://user-images.githubusercontent.com/75042859/236964628-be6051c6-07a8-4a8b-b823-9666a298eee4.png)
+
 a. User Enrollment:  
   - The end user registers with the IdP and submits personal information.  
   - The IdP performs the necessary KYC checks and generates a ZK identity and digital credentials for the user.
